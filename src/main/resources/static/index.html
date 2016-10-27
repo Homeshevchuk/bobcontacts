@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Login page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/index.css" rel="stylesheet">
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+</head>
+<body>
+
+<div class="form-container">
+    <div class="panel panel-primary" style="flex: 1 1 0;margin-bottom: 0px">
+        <div class="panel-heading "
+        style="display: flex;flex-direction: row;position: fixed;justify-content: space-between">
+            <h4 style="align-self: center">CONTACTS</h4>
+
+            <div style="width: 20%;min-width: 200px">
+                <div class="input-group">
+                    <input type="text" id="filterInput" class="form-control" aria-label="...">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Filter<span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ><a id="surnameFilter">Surname</a></li>
+                            <li id="nameFilter"><a>Name</a></li>
+                            <li id="phoneFilter"><a>Phone</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li id="disableFilter"><a>None</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-hover table-bordered table-selector" style="flex: 1 1 0;margin-top: 60px">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>
+            Surname
+
+        </th>
+        <th>Name</th>
+        <th>Middle name</th>
+        <th>Mobile phone</th>
+        <th>Home phone</th>
+        <th>Address</th>
+        <th>Email</th>
+
+    </tr>
+    </thead>
+    <tbody id="content">
+
+
+    </tbody>
+</table>
+<div class="modal fade target-dialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Change Contact</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="surname" class="col-sm-2 control-label">Surname</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="surname" placeholder="Surname">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName" class="col-sm-2 control-label">Middle name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="middleName" placeholder="Middle Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="mobilePhone" placeholder="Mobile Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="homePhone" class="col-sm-2 control-label">Home Phone</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="homePhone" placeholder="Home Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="display: flex;">
+                <button type="button" id="deleteBtn" class="btn btn-warning" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <div style="flex: 1"></div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="saveDialog" class="btn btn-primary">Save</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</div>
+
+
+</div>
+<button type="button" style="position: fixed; left:49%;top: 90%" id="addBtn" class="btn btn-primary "
+        data-dismiss="modal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
