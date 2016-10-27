@@ -1,8 +1,10 @@
 package com.larditest;
 
+import com.larditest.DAO.UserDao;
 import com.larditest.DAO.UserRepository;
 import com.larditest.Entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,8 +17,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @EnableWebSecurity
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    UserRepository repository;
-
+    ApplicationContext context;
+    UserDao<User> dao;
+    {
+        dao = context.getBean(dao.getClass());
+    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
