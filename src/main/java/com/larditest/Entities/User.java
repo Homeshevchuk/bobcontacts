@@ -19,9 +19,9 @@ public class User {
     @Size(min = 3,message = "Username length must be more than 3.")
     @Pattern(regexp = "^[a-zA-Z ]+$",message = "Username can contains english letters only.")
     private String username;
-    @Size(min = 5, message = "Password length must be more than 3.")
+    @Size(min = 5, message = "Password length must be more than 5.")
     private String password;
-    @Size(min = 5,message = "Full name length must be more than 3.")
+    @Size(min = 5,message = "Full name length must be more than 5.")
     private String fullName;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "owner",orphanRemoval = true)
     List<Contact> contacts;
