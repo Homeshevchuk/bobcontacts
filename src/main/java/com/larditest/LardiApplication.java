@@ -26,13 +26,9 @@ import java.util.*;
 
 @Configuration
 @SpringBootApplication
-@ConfigurationProperties(locations = "classpath:lardi.conf")
 public class LardiApplication implements CommandLineRunner {
     @Autowired
     UserDao dao;
-
-    @Value("${spring.datasource.driver-class-name}")
-    private String driverClassName;
 
     public static void main(String[] args) throws IOException {
         LardiApplication lardiApplication = new LardiApplication();

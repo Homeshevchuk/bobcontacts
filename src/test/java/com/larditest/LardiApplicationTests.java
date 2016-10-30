@@ -148,5 +148,5 @@ public class LardiApplicationTests {
         this.mockMvc.perform(get("/Contacts/getContacts").with(user(testUser.getUsername()).password(testUser.getPassword()))).andExpect(content().string("[]"));
 
     }
-    
+
 }
