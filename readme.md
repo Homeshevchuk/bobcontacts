@@ -24,6 +24,5 @@ CREATE TABLE `contact` (
   KEY `owner_idx` (`owner`),
   CONSTRAINT `owner` FOREIGN KEY (`owner`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
-SELECT * FROM heroku_2a9decb64510069.user;
 ```
 В файле настроек нужно передать host, username,password(для использования базы), либо path(для использования файлового хранилища).
