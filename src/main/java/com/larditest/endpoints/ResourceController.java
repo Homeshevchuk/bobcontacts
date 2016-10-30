@@ -11,12 +11,12 @@ import java.security.Principal;
 @Controller
 public class ResourceController {
     @RequestMapping("/")
-        public String main(Principal principal){
-            if(principal==null){
-                return "redirect:login.html";
-            }else {
-                return "redirect:index.html";
-            }
-
+    public String main(Principal principal) {
+        if (principal == null) {
+            return "redirect:login.html";
+        } else {
+            return "redirect:index.html";
         }
+
+    }
 }

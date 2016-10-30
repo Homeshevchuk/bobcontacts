@@ -1,7 +1,6 @@
-package com.larditest.Entities;
+package com.larditest.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -34,6 +33,10 @@ public class User {
         this.password = password;
         this.fullName = fullName;
         this.contacts = new ArrayList<>();
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getId() {
@@ -81,5 +84,21 @@ public class User {
                 ", fullName='" + fullName + '\'' +
                 ", contacts=" + Arrays.toString(contacts.toArray()) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return username.equals(user.username);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return username.hashCode();
     }
 }

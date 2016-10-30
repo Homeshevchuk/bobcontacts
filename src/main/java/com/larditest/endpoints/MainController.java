@@ -1,16 +1,10 @@
 package com.larditest.endpoints;
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.larditest.DAO.ContactsRepository;
-import com.larditest.DAO.UserDao;
-import com.larditest.DAO.UserRepository;
-import com.larditest.Entities.Contact;
-import com.larditest.Entities.User;
-import com.larditest.Services.UserService;
-import com.sun.glass.ui.Application;
+import com.larditest.dao.UserDao;
+import com.larditest.entities.Contact;
+import com.larditest.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,13 +19,8 @@ import java.util.List;
 @RestController
 public class MainController {
     @Autowired
-    ApplicationContext context;
-    UserDao<User> dao;
-    {
-        dao = context.getBean(dao.getClass());
-    }
-    @Autowired
-    ContactsRepository contactsRepository;
+    UserDao dao;
+
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public void registration(@Validated @RequestBody User user){
         if(dao.findByUsername(user.getUsername())==null){
@@ -77,22 +66,5 @@ public class MainController {
         List<Contact> contacts = user.getContacts();
         return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
     }
-    @RequestMapping(value = "/Contacts/filteredBySurname",method = RequestMethod.GET)
-    public ResponseEntity<List<Contact>> getContactsFilteredBySurname(@RequestBody String filter, Principal principal){
-        User user = dao.findByUsername(principal.getName());
-        List<Contact> contacts = contactsRepository.findBySurnameContainingAndOwnerIs(filter,user);
-        return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
-    }
-    @RequestMapping(value = "/Contacts/filteredByName",method = RequestMethod.GET)
-    public ResponseEntity<List<Contact>> getContactsFilteredByName(@RequestBody String filter, Principal principal){
-        User user = dao.findByUsername(principal.getName());
-        List<Contact> contacts = contactsRepository.findByNameContainingAndOwnerIs(filter,user);
-        return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
-    }
-    @RequestMapping(value = "/Contacts/filteredByPhone",method = RequestMethod.GET)
-    public ResponseEntity<List<Contact>> getContactsFilteredByPhone(@RequestBody String filter, Principal principal){
-        User user = dao.findByUsername(principal.getName());
-        List<Contact> contacts = contactsRepository.findByMobilePhoneContainingAndOwnerIs(filter,user);
-        return new ResponseEntity<List<Contact>>(contacts, HttpStatus.OK);
-    }
+
 }

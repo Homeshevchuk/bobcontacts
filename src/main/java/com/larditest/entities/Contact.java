@@ -1,4 +1,4 @@
-package com.larditest.Entities;
+package com.larditest.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -44,6 +44,10 @@ public class Contact {
         this.homePhone = homePhone;
         this.address = address;
         this.email = email;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getId() {

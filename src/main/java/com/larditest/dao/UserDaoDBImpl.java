@@ -1,30 +1,35 @@
-package com.larditest.DAO;
+package com.larditest.dao;
 
-import com.larditest.Entities.User;
+import com.larditest.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Repository;
-
-import javax.persistence.JoinColumn;
-import java.io.Serializable;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by PC on 28.10.2016.
  */
-@Repository
-public class UserDaoDBImpl<User> implements UserDao<User> {
+
+public class UserDaoDBImpl implements UserDao {
     @Autowired
-    UserRepository<User> repository;
+    UserRepository repository;
 
     @Override
     public User save(User entity) {
         repository.save(entity);
+
         return entity;
     }
 
     @Override
     public User findByUsername(String username) {
         return repository.findByUsername(username);
+
+    }
+
+    @Override
+    public void deleteAll() {
+        repository.deleteAll();
     }
 
 }
